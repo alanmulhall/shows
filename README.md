@@ -44,3 +44,6 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
 
 #### Run the tests
 1. run `rspec`
+
+#### Use app on Heroku
+1. Do a POST request to: `https://intense-savannah-56279.herokuapp.com/`
