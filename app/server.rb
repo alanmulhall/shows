@@ -9,7 +9,7 @@ class Server < Sinatra::Base
 	enable :cross_origin
 
   get '/' do
-    'This app only accepts POST requests'
+    'This app only accepts POST requests.'
   end
 
   post '/' do
