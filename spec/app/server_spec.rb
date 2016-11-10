@@ -93,19 +93,19 @@ RSpec.describe Server do
     end
 
     context 'failure' do
-      it 'returns the correct status code' do
+      it 'has the correct status code' do
         post '/', nil, headers
         expect(last_response.status).to eq(400)
+      end
+
+      it 'has the correct error message' do
+        post '/', nil, headers
+        expect(last_response.as_json.fetch('error')).to eq('Could not decode request: JSON parsing failed')
       end
 
       it 'returns json' do
         post '/', nil, headers
         expect(last_response).to be_json
-      end
-
-      it 'returns the correct error message' do
-        post '/', nil, headers
-        expect(last_response.as_json.fetch('error')).to eq('Could not decode request: JSON parsing failed')
       end
 
       it 'fails when request has no payload' do
