@@ -1,5 +1,7 @@
 ## Shows Endpoint
-A small service which transforms a provided JSON.
+A small service which transforms a provided JSON. The app is built using
+Ruby/Sinatra. When the Github repo is updated, a Travis CI build is set
+off, if his completes the app is auto deployed to Heroku.
 
 #### Prerequists
 1. Ruby 2.3.0
