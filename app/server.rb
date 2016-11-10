@@ -20,7 +20,7 @@ class Server < Sinatra::Base
       playlist = { error: shows_summary_service.errors[:parse].first }
     end
     content_type :json
-    status playlist.has_key?(:response) ? 200 : 400
+    status shows_summary_service.success? ? 200 : 400
     playlist.to_json
   end
 
