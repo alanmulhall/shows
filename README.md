@@ -1,4 +1,4 @@
-### Shows Endpoint
+## Shows Endpoint
 A small service which transforms a provided JSON.
 
 #### Prerequists
