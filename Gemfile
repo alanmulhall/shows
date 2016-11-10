@@ -3,11 +3,14 @@ ruby '2.3.0'
 gem 'sinatra'
 gem 'sinatra-cross_origin'
 gem 'json'
-gem 'rack-test-json'
 gem 'simple_command'
-gem 'pry-byebug'
+
+group :development, :test do
+  gem 'pry-byebug'
+end
 
 group :test do
   gem 'rspec'
   gem 'rack-test'
+  gem 'rack-test-json'
 end
