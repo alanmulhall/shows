@@ -62,12 +62,12 @@ RSpec.describe Server do
         post '/', playlist(show).to_json, headers
       end
 
-      it 'is valid json' do
-        expect(last_response).to be_json
-      end
-
       it 'has the correct status code' do
         expect(last_response.status).to eq(200)
+      end
+
+      it 'is valid json' do
+        expect(last_response).to be_json
       end
 
       it 'has a response key' do
@@ -103,7 +103,7 @@ RSpec.describe Server do
         expect(last_response.as_json.fetch('error')).to eq('Could not decode request: JSON parsing failed')
       end
 
-      it 'returns json' do
+      it 'is valid json' do
         post '/', nil, headers
         expect(last_response).to be_json
       end
