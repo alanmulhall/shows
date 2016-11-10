@@ -8,6 +8,10 @@ class Server < Sinatra::Base
   set :allow_methods, [:post, :options]
 	enable :cross_origin
 
+  get '/' do
+    'This app only accepts POST requests'
+  end
+
   post '/' do
     shows_summary_service = ShowsSummaryService.call(request)
     if shows_summary_service.success?

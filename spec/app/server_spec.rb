@@ -22,6 +22,15 @@ RSpec.describe Server do
     end
   end
 
+  describe 'GET /' do
+    before do
+      get '/'
+    end
+    it 'displays the correct message' do
+      expect(last_response.body).to eq('This app only accepts POST requests')
+    end
+  end
+
   describe 'POST /' do
     let(:headers) { { 'CONTENT_TYPE': 'application/json' } }
     let(:show) do
