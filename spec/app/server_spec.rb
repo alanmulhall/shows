@@ -26,6 +26,7 @@ RSpec.describe Server do
     before do
       get '/'
     end
+
     it 'displays the correct message' do
       expect(last_response.body).to eq('This app only accepts POST requests.')
     end
