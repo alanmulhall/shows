@@ -3,10 +3,10 @@ require 'sinatra/cross_origin'
 require_relative 'shows_summary_service'
 
 class Server < Sinatra::Base
-	register Sinatra::CrossOrigin
-	set :allow_origin, :any
+  register Sinatra::CrossOrigin
+  set :allow_origin, :any
   set :allow_methods, [:post, :options]
-	enable :cross_origin
+  enable :cross_origin
 
   get '/' do
     'This app only accepts POST requests.'
@@ -14,13 +14,15 @@ class Server < Sinatra::Base
 
   post '/' do
     shows_summary_service = ShowsSummaryService.call(request)
-    if shows_summary_service.success?
+    is_successful = shows_summary_service.success?
+
+    if is_successful
       playlist = { response: shows_summary_service.result }
     else
       playlist = { error: shows_summary_service.errors[:parse].first }
     end
     content_type :json
-    status shows_summary_service.success? ? 200 : 400
+    status is_successful ? 200 : 400
     playlist.to_json
   end
 
