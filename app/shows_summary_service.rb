@@ -16,7 +16,7 @@ class ShowsSummaryService
           image: show.fetch('image').fetch('showImage')
         }
       }
-    rescue # Exception => e
+    rescue
       errors.add(:parse, 'Could not decode request: JSON parsing failed')
     end
   end
